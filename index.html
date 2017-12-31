@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css", href="assets/css/reset.css">
+</head>
+<body>
+
+<div class="jumbotron" id="content">
+	<div class="row">
+    	<div class="col">
+      		<h1 class="display-4">Hangman Game</h1>
+			<p class="lead">Guess what word I'm thinking of</p>
+			<h3 id="hangmanword"></h3>
+			<hr class="my-4">
+			<p id="wins">Wins: </p>
+
+			<p id="losses">Losses: </p>
+
+			<p id="guessesLeft">Guesses Left: </p>
+
+			<p id="guessesSoFar">Your Guesses so far: </p>
+    	</div>
+    	<div class="col">
+      		<!-- <img id="image" src=""> -->
+    	</div>
+  	</div>
+</div>
+
+
+
+<footer class="fixed-bottom">
+	<div>Copyright &copy; 2017 Clark McDermith</div>
+</footer>
+
+<script src="assets/javascript/game.js"></script>
+
+</body>
+</html>

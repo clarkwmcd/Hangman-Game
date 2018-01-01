@@ -6,6 +6,7 @@ var guess;
 var guessesSoFar = [ ];
 var guessesLeft;
 var wins = 0;
+var wordLetters = [ ];
 
 randomWord();
 hideWord();
@@ -17,29 +18,27 @@ document.onkeyup = function() {
 	guessesSoFar.push(" " + guess);
 	console.log(guess);
 	console.log(guessesLeft);
-
-//this if statement logic is not correct because it is only selecting the first letter of the word not any letter in the word. 
-	if (guess === hangmanWord.charAt()) {
-		console.log("match");
-		alert ("You Won!");
-		wins++;
-		document.querySelector("#wins").innerHTML = "Wins: " + wins;
-		reset();
-	}
-
-	else {
-		console.log("no match");
-		guessesLeft--;
-		document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
-
-		if (guessesLeft === 0) {
-			reset();
-			alert("You Lost!")
-			losses++;
-			document.querySelector("#losses").innerHTML = "Losses: " + losses;
-		}
 	
-	}
+ 	for(i=0; i<wordLetters.length; i++)
+ 	{
+		if (guess === wordLetters[i]) 
+		{
+			console.log("match");
+			document.querySelector("#hangmanword").innerHTML += guess;
+			guessesLeft--;
+			break;
+		}
+
+		else 
+		{
+			console.log("no match");
+			
+			guessesLeft--;
+			document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+		
+		}
+ 	};
+	
 	document.querySelector("#guessesSoFar").innerHTML = "Your Guesses so far: " + guessesSoFar;
 };
 
@@ -61,8 +60,13 @@ function randomWord()
 {
 	hangmanWord = wordBank[Math.floor(Math.random()*wordBank.length)];
 	console.log(hangmanWord);
-			
-}
+	for (i=0; i<hangmanWord.length; i++)
+	{
+		var letter = hangmanWord.charAt(i);
+		wordLetters.push(letter);
+	};
+	console.log(wordLetters);		
+};
 
 //resets everything except the wins and losses values.
 function reset() {
